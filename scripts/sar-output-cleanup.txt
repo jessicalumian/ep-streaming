@@ -1,0 +1,8 @@
+# get rid of header lines containing "DEV" (check if these exist using grep "DEV" file.txt)
+# silly naming scheme, then rename disk.keep.txt to disk.txt
+
+grep -vwE "DEV" disk.txt > disk.keep.txt
+
+# sed command to remove blank lines (disk.txt is file being used)
+
+sed -i '' '/^$/d' disk.txt

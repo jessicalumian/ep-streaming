@@ -1,0 +1,10 @@
+output
+times.dat
+times.out
+*.txt.gz
+Trinity.fasta
+benchmarking-10-01-15
+graphdump
+graphs
+misc
+*-y0.pdf
