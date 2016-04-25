@@ -25,6 +25,7 @@ Install git-core for literate resting text extraction
 of khmer-protocols. 
 
 ```text
+sudo apt-get update
 sudo chmod a+rwxt /mnt
 sudo apt-get -y install git-core
 ```
