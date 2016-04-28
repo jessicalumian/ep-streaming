@@ -145,6 +145,38 @@ scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
 ```
 In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest)
 
+Install Transrate:
+```text
+cd
+curl -O -L https://bintray.com/artifact/download/blahah/generic/transrate-1.0.1-linux-x86_64.tar.gz
+tar xzf transrate-1.0.1-linux-x86_64.tar.gz
+
+export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64
+echo 'export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64' >> ~/.bashrc
+export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64/bin
+echo 'export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64/bin' >> ~/.bashrc
+
+transrate --install-deps ref
+```
+
+Make working directory
+```text
+mkdir /mnt/transrate
+cd /mnt/transrate
+```
+
+Copy assembly over, rename it, run sed to fix formatting problems, and run transrate
+```text
+cp /mnt/work/trinity_out_dir/Trinity.fasta .
+mv Trinity.fasta Trinity.fa
+sed 's/\|/_/' Trinity.fa > Trinity.fixed.fa
+transrate --assembly Trinity.fixed.fa
+```
+Then, download your beautify assemblies.csv stats file!
+```text
+scp -i ~/Downloads/amazon.pem ubuntu@ec2-54-152-117-102.compute-1.amazonaws.com:/mnt/transrate/transrate_results/assemblies.csv .
+```
+
 To do:
 
 * Put log.out into RStudio, generate graphs, add working script here (probably done)
