@@ -172,9 +172,9 @@ mv Trinity.fasta Trinity.fa
 sed 's/\|/_/' Trinity.fa > Trinity.fixed.fa
 transrate --assembly Trinity.fixed.fa
 ```
-Then, download your beautify assemblies.csv stats file!
+Then, download your beautiful assemblies.csv stats file!
 ```text
-scp -i ~/Downloads/amazon.pem ubuntu@ec2-54-152-117-102.compute-1.amazonaws.com:/mnt/transrate/transrate_results/assemblies.csv .
+scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/mnt/transrate/transrate_results/assemblies.csv .
 ```
 
 To do:
