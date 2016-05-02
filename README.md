@@ -6,7 +6,7 @@ Start by firing up Amazon EC2 (m3.xlarge for data subset). Instructions on setti
 
 **For full data set:**
 
-Boot up an m4.4xlarge Amazon EC2. Under "Add Storage", add 200 GB on the root volume.
+Boot up an m4.4xlarge Amazon EC2. Under "Add Storage", add 600 GB on the root volume.
 
 Mount data:
 ```text
@@ -25,6 +25,7 @@ Install git-core for literate resting text extraction
 of khmer-protocols. 
 
 ```text
+sudo apt-get update
 sudo chmod a+rwxt /mnt
 sudo apt-get -y install git-core
 ```
@@ -141,6 +142,39 @@ And also copy the times.dat and disk, cpu, and ram files to a local computer, ru
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/times.dat .
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/*.txt.gz .  
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
+```
+In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest)
+
+Install Transrate:
+```text
+cd
+curl -O -L https://bintray.com/artifact/download/blahah/generic/transrate-1.0.1-linux-x86_64.tar.gz
+tar xzf transrate-1.0.1-linux-x86_64.tar.gz
+
+export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64
+echo 'export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64' >> ~/.bashrc
+export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64/bin
+echo 'export PATH=$PATH:$HOME/transrate-1.0.1-linux-x86_64/bin' >> ~/.bashrc
+
+transrate --install-deps ref
+```
+
+Make working directory
+```text
+mkdir /mnt/transrate
+cd /mnt/transrate
+```
+
+Copy assembly over, rename it, run sed to fix formatting problems, and run transrate
+```text
+cp /mnt/work/trinity_out_dir/Trinity.fasta .
+mv Trinity.fasta Trinity.fa
+sed 's/\|/_/' Trinity.fa > Trinity.fixed.fa
+transrate --assembly Trinity.fixed.fa
+```
+Then, download your beautiful assemblies.csv stats file!
+```text
+scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/mnt/transrate/transrate_results/assemblies.csv .
 ```
 
 To do:
