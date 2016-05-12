@@ -169,7 +169,7 @@ Copy assembly over, rename it, run sed to fix formatting problems, and run trans
 ```text
 cp /mnt/work/trinity_out_dir/Trinity.fasta .
 mv Trinity.fasta Trinity.fa
-sed 's/\|/_/' Trinity.fa > Trinity.fixed.fa
+sed 's_|_-_g' Trinity.fa > Trinity.fixed.fa
 transrate --assembly Trinity.fixed.fa
 ```
 Then, download your beautiful assemblies.csv stats file!
