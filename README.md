@@ -60,7 +60,7 @@ cd khmer-protocols/mrnaseq
 **For all methods:** Extract commands from protocols. 
 
 ```text
-for i in [1-6]-*.rst
+for i in [1-7]-*.rst
 do
    /home/ubuntu/literate-resting/scan.py $i || break
 done  
@@ -125,7 +125,11 @@ bash 1-streaming-subset.rst.sh
 bash 2-streaming-full.rst.sh
 ```
 
-This will generate your assembly in a file called Trinity.fasta!
+**For semi-streaming on data subset:**
+
+```text
+bash 7-sub-partial-stream.rst.sh
+```
 
 Now, use the following commands to extract disk, CPU, and RAM information from sar:
 
