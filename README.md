@@ -17,9 +17,8 @@ Boot up an m4.4xlarge Amazon EC2. Under "Add Storage", add 600 GB on the root vo
 Mount data:
 ```text
 lsblk # lists all possible volumes, identify which is right
-sudo bash
 mkdir data/ 
-mount /dev/xvdf data/ # fill in correct four characters. Note- this mount replaces entire directory, so do it in an empty place
+sudo mount /dev/xvdf data/ # fill in correct four characters. Note- this mount replaces entire directory, so do it in an empty place
 df
 ls
 ```
