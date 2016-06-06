@@ -43,7 +43,7 @@ Extract commands from protocols, note ctb branch is nonstreaming.
 cd /home/ubuntu
 rm -fr literate-resting khmer-protocols
 git clone https://github.com/dib-lab/literate-resting.git
-git clone https://github.com/dib-lab/khmer-protocols.git -b ctb
+git clone https://github.com/dib-lab/khmer-protocols.git -b jem-nonstreaming
 
 cd khmer-protocols/mrnaseq  
 ```
