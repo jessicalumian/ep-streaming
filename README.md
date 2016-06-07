@@ -2,7 +2,7 @@ This is a comparison of a streaming and nonstreaming versions of the [Eel Pond m
 
 Analysis commands:
 * [Streaming, full dataset](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/2-streaming-full.rst)
-* Nonstreaming, full dataset [one](https://github.com/dib-lab/khmer-protocols/blob/jem-nonstreaming/mrnaseq/1-quality.rst), [two](https://github.com/dib-lab/khmer-protocols/blob/jem-nonstreaming/mrnaseq/2-diginorm.rst), [three](https://github.com/dib-lab/khmer-protocols/blob/jem-nonstreaming/mrnaseq/3-big-assembly.rst)
+* Nonstreaming, full dataset [one](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/3-ctb1-quality.rst), [two](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/5-ctb2-diginorm.rst), [three](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/6-ctb3-big-assembly.rst)
 * [Streaming, subset](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/1-streaming-subset.rst)
 * Nonstreaming, subset [one](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/1-quality.rst), [two](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/2-diginorm.rst), [three](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/3-big-assembly.rst)
 
@@ -43,7 +43,7 @@ Extract commands from protocols, note ctb branch is nonstreaming.
 cd /home/ubuntu
 rm -fr literate-resting khmer-protocols
 git clone https://github.com/dib-lab/literate-resting.git
-git clone https://github.com/dib-lab/khmer-protocols.git -b jem-nonstreaming
+git clone https://github.com/dib-lab/khmer-protocols.git -b ctb
 
 cd khmer-protocols/mrnaseq  
 ```
