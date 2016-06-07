@@ -60,7 +60,7 @@ cd khmer-protocols/mrnaseq
 **For all methods:** Extract commands from protocols. 
 
 ```text
-for i in [1-7]-*.rst
+for i in [1-9]-*.rst
 do
    /home/ubuntu/literate-resting/scan.py $i || break
 done  
