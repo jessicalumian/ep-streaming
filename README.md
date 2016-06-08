@@ -153,7 +153,11 @@ scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/m
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/*.txt.gz .  
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
 ```
-In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest)
+In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest). The parsing script can be found in this repository: [https://github.com/jessicamizzi/sartre-jessica](https://github.com/jessicamizzi/sartre-jessica).
+
+If readstats.py was run:
+
+scp -i ~/Downloads/amazon.pem ubuntu@e<Public DNS>:/mnt/work/readstats.out .
 
 Install Transrate:
 ```text
