@@ -2,7 +2,7 @@ This is a comparison of a streaming and nonstreaming versions of the [Eel Pond m
 
 Analysis commands:
 * [Streaming, full dataset](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/2-streaming-full.rst)
-* Nonstreaming, full dataset [one](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/1-quality.rst), [two](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/2-diginorm.rst), [three](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/3-big-assembly.rst)
+* Nonstreaming, full dataset [one](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/3-ctb1-quality.rst), [two](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/5-ctb2-diginorm.rst), [three](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/6-ctb3-big-assembly.rst)
 * [Streaming, subset](https://github.com/dib-lab/khmer-protocols/blob/jem-streaming/mrnaseq/1-streaming-subset.rst)
 * Nonstreaming, subset [one](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/1-quality.rst), [two](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/2-diginorm.rst), [three](https://github.com/dib-lab/khmer-protocols/blob/ctb/mrnaseq/3-big-assembly.rst)
 
@@ -60,7 +60,7 @@ cd khmer-protocols/mrnaseq
 **For all methods:** Extract commands from protocols. 
 
 ```text
-for i in [1-7]-*.rst
+for i in [1-9]-*.rst
 do
    /home/ubuntu/literate-resting/scan.py $i || break
 done  
@@ -153,7 +153,11 @@ scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/m
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/*.txt.gz .  
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
 ```
-In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest)
+In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest). The parsing script can be found in this repository: [https://github.com/jessicamizzi/sartre-jessica](https://github.com/jessicamizzi/sartre-jessica).
+
+If readstats.py was run:
+
+scp -i ~/Downloads/amazon.pem ubuntu@e<Public DNS>:/mnt/work/readstats.out .
 
 Install Transrate:
 ```text
