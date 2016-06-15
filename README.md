@@ -85,17 +85,17 @@ Create a new window and run commands:
 ```text
 crtl+a c
 ```
-**FULL DATASET (mounted manually**
+**FULL DATASET (mounted manually)**
 
-Streaming:
+**Streaming:**
 
 ```text
 bash 2-streaming-full.rst.sh
 ```
-Nonstreaming:
+**Nonstreaming:**
 
 ```text
-for i in [3-6]-*.rst.sh
+for i in [3-5]-*.rst.sh
 do
    bash $i
 done  
@@ -103,12 +103,12 @@ done
 
 **DATA SUBSET**
 
-Streaming:
+**Streaming:**
 ```text
 bash 1-streaming-subset.rst.sh  
 ```
 
-Nonstreaming: (from ctb branch instead of jem-streaming)
+**Nonstreaming:** (from ctb branch instead of jem-streaming)
 ```text
 for i in [1-3]-*.rst.sh
 do
