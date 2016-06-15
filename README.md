@@ -38,16 +38,6 @@ apt-get -y install git-core
 
 Extract commands from protocols, note ctb branch is nonstreaming.
 
-**For non streaming, data subset:**
-```text
-cd /home/ubuntu
-rm -fr literate-resting khmer-protocols
-git clone https://github.com/dib-lab/literate-resting.git
-git clone https://github.com/dib-lab/khmer-protocols.git -b ctb
-
-cd khmer-protocols/mrnaseq  
-```
-
 **For streaming (full or subset) or non streaming full data set:**
 ```text
 cd /home/ubuntu
@@ -57,6 +47,9 @@ git clone https://github.com/dib-lab/khmer-protocols.git -b jem-streaming
 
 cd khmer-protocols/mrnaseq  
 ```
+
+Note: For nonstreaming, data subset, do `-b ctb` instead
+
 **For all methods:** Extract commands from protocols. 
 
 ```text
@@ -92,19 +85,14 @@ Create a new window and run commands:
 ```text
 crtl+a c
 ```
+**FULL DATASET (mounted manually**
 
-**For nonstreaming, data subset**
-
-Run commands for pages 1-3 (goes up through trinity assembly):
+Streaming:
 
 ```text
-for i in [1-3]-*.rst.sh
-do
-   bash $i
-done  
+bash 2-streaming-full.rst.sh
 ```
-
-**For nonstreaming, full dataset (mounted manually):**
+Nonstreaming:
 
 ```text
 for i in [3-6]-*.rst.sh
@@ -113,25 +101,23 @@ do
 done  
 ```
 
-**For streaming, data subset:**
+**DATA SUBSET**
 
+Streaming:
 ```text
 bash 1-streaming-subset.rst.sh  
 ```
 
-**For streaming on full data set (mounted manually):**
-
+Nonstreaming: (from ctb branch instead of jem-streaming)
 ```text
-bash 2-streaming-full.rst.sh
+for i in [1-3]-*.rst.sh
+do
+   bash $i
+done  
 ```
 
-**For semi-streaming on data subset:**
 
-```text
-bash 7-sub-partial-stream.rst.sh
-```
-
-Now, use the following commands to extract disk, CPU, and RAM information from sar:
+After pipeline finishes, use the following commands to extract disk, CPU, and RAM information from sar in corresponding screen:
 
 ```text
 sar -d -p -f times.dat > disk.txt
@@ -140,7 +126,9 @@ sar -r -f times.dat > ram.txt
 gzip *.txt
 ```
 
-Use scp to transfer files to local computer (could also use cyberduck, but this is quicker). Fill in with correct paths and < > brackets. **Command for local computer** when in your desired file location for the assembly:
+Use scp to transfer files to local computer (could also use cyberduck, but this is quicker). Fill in with correct paths and < > brackets. 
+
+**Command for local computer** when in your desired file location for the assembly:
 
 ```text
 scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/mnt/work/trinity_out_dir/Trinity.fasta .  
@@ -157,7 +145,9 @@ In sar, do "./extract xvdf" to run and get log.out file (specifies disk of inter
 
 If readstats.py was run:
 
+```text
 scp -i ~/Downloads/amazon.pem ubuntu@e<Public DNS>:/mnt/work/readstats.out .
+```
 
 Install Transrate:
 ```text
