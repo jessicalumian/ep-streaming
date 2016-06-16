@@ -41,4 +41,4 @@ for line in fpLines:
 
     # format output file
     
-     print (' '.join(line[:2]), secondsElapsed, file=output)
+    print (' '.join(line[:2]), secondsElapsed, file=output)
