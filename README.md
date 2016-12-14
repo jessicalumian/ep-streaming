@@ -33,7 +33,7 @@ of khmer-protocols.
 sudo bash
 apt-get update
 chmod a+rwxt /mnt
-apt-get -y install git-core
+apt-get -y install git-core python-dev python-pip python-virtualenv
 ```
 
 Extract commands from protocols, note ctb branch is nonstreaming.
