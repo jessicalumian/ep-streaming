@@ -12,7 +12,7 @@ Start by firing up Amazon EC2 (m3.xlarge for data subset). Instructions on setti
 
 **For full data set:**
 
-Boot up an m4.4xlarge Amazon EC2. Under "Add Storage", add 600 GB on the root volume.
+Boot up an m4.4xlarge Amazon EC2. Under "Add Storage", add 600 GB on the root volume. Or, m4.large for smaller computer.
 
 Mount data:
 ```text
