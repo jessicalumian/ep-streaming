@@ -131,22 +131,22 @@ Use scp to transfer files to local computer (could also use cyberduck, but this 
 **Command for local computer** when in your desired file location for the assembly:
 
 ```text
-scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/mnt/work/trinity_out_dir/Trinity.fasta .  
+scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/mnt/work/trinity_out_dir/Trinity.fasta .  
 ```
 
 And also copy the times.dat and disk, cpu, and ram files to a local computer, running this same command **on the local computer**:
 
 ```text
-scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/times.dat .
-scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/*.txt.gz .  
-scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
+scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/times.dat .
+scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/*.txt.gz .  
+scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
 ```
 In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest). The parsing script can be found in this repository: [https://github.com/jessicamizzi/sartre-jessica](https://github.com/jessicamizzi/sartre-jessica).
 
 If readstats.py was run:
 
 ```text
-scp -i ~/Downloads/amazon.pem ubuntu@e<Public DNS>:/mnt/work/readstats.out .
+scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@e<Public DNS>:/mnt/work/readstats.out .
 ```
 
 Install Transrate:
@@ -177,7 +177,7 @@ transrate --assembly Trinity.fixed.fa
 ```
 Then, download your beautiful assemblies.csv stats file!
 ```text
-scp -i ~/Downloads/amazon.pem ubuntu@<Public DNS>:/mnt/transrate/transrate_results/assemblies.csv .
+scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/mnt/transrate/transrate_results/assemblies.csv .
 ```
 
 Screen Information - If ssh connection to AWS EC2 goes out, then use following commands to reattach:
