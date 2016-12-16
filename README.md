@@ -141,7 +141,7 @@ scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/home/ubuntu
 scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/home/ubuntu/khmer-protocols/mrnaseq/*.txt.gz .  
 scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/home/ubuntu/times.out .
 ```
-In sar, do "./extract xvdf" to run and get log.out file (specifies disk of interest). The parsing script can be found in this repository: [https://github.com/jessicamizzi/sartre-jessica](https://github.com/jessicamizzi/sartre-jessica).
+In sar, do "./extract.py xvdf" to run and get log.out file (specifies disk of interest). The parsing script can be found in this repository: [https://github.com/jessicamizzi/sartre-jessica](https://github.com/jessicamizzi/sartre-jessica). Note - the sartre-jessica extract script will only work for full data sets that have been mounted. For data subsets, clone and use [https://github.com/ctb/sartre](https://github.com/ctb/sartre).
 
 If readstats.py was run:
 
