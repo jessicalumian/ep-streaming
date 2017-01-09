@@ -85,6 +85,12 @@ Create a new window and run commands:
 ```text
 crtl+a c
 ```
+
+Before exiting, detach from screen: 
+```text
+crtl+a d
+```
+See [this tutorial](http://cs.smith.edu/dftwiki/index.php/Tutorial:_So_you_want_to_run_your_code_on_Amazon%3F) for more info
 **FULL DATASET (mounted manually)**
 
 **Streaming:**
