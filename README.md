@@ -194,3 +194,6 @@ screen -ls # see what screens you need
 screen -d # detach (if attached)
 screen -r # reattach (give choice of what to reattach to)
 ```
+
+TO DO -
+* fix screen, maybe try tmux: [http://askubuntu.com/questions/163735/lost-console-when-ec2-ssh-is-logged-out](http://askubuntu.com/questions/163735/lost-console-when-ec2-ssh-is-logged-out)
