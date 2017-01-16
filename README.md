@@ -14,8 +14,9 @@ Start by firing up Amazon EC2 (m3.xlarge for data subset). Instructions on setti
 
 Boot up an m4.4xlarge Amazon EC2. Under "Add Storage", add 600 GB on the root volume. Or, m4.large for smaller computer.
 
-Mount data:
+Start tmux and mount data:
 ```text
+tmux
 lsblk # lists all possible volumes, identify which is right
 mkdir data/ 
 sudo mount /dev/xvdf data/ # fill in correct four characters. Note- this mount replaces entire directory, so do it in an empty place
@@ -33,7 +34,7 @@ of khmer-protocols.
 sudo bash
 apt-get update
 chmod a+rwxt /mnt
-apt-get -y install git-core python-dev python-pip python-virtualenv
+apt-get -y install git-core python-dev python-pip python-virtualenv sysstat
 ```
 
 Extract commands from protocols, note ctb branch is nonstreaming.
@@ -60,19 +61,12 @@ done
 ```
 
 In another ssh session, run [sar](https://github.com/ctb/sartre) to monitor resrouces. Use screen to do so in same window. 
-*Note* - ctrl+a = press control key and a at the same time, this won't copy paste.
-Use [screen](http://www.pixelbeat.org/lkdb/screen.html) to have multiple windows within same ssh session.
+*Note* - ctrl+b = press control key and a at the same time, this won't copy paste.
+Use [tmux](http://man.openbsd.org/OpenBSD-current/man1/tmux.1) to have multiple windows within same ssh session.
 
-Now create a new window to run commands while sar runs in this one:
+Now create a new window to run commands while tmux runs in this one:
 ```text
-screen
-crtl+a c # creates a new window
-```
-
-Install sar:
-
-```text
-sudo apt-get install sysstat -y  
+ctrl+b c
 ```
 
 Start running sar:
@@ -80,17 +74,17 @@ Start running sar:
 ```text
 sar -u -r -d -o times.dat 1  
 ```
-Create a new window and run commands:
+Change windows to be able to run command:
 
 ```text
-crtl+a c
+crtl+b n
 ```
 
-Before exiting, detach from screen: 
+When you return to the instance, type: 
 ```text
-crtl+a d
+tmux attach
 ```
-See [this tutorial](http://cs.smith.edu/dftwiki/index.php/Tutorial:_So_you_want_to_run_your_code_on_Amazon%3F) for more info
+
 **FULL DATASET (mounted manually)**
 
 **Streaming:**
@@ -121,7 +115,6 @@ do
    bash $i
 done  
 ```
-
 
 After pipeline finishes, use the following commands to extract disk, CPU, and RAM information from sar in corresponding screen:
 
@@ -186,14 +179,12 @@ Then, download your beautiful assemblies.csv stats file!
 scp -i ~/Downloads/amazon-streaming-current.pem ubuntu@<Public DNS>:/mnt/transrate/transrate_results/assemblies.csv .
 ```
 
-Screen Information - If ssh connection to AWS EC2 goes out, then use following commands to reattach:
+tmux commands cheat sheet:
 
 ```text
-sudo bash
-screen -ls # see what screens you need
-screen -d # detach (if attached)
-screen -r # reattach (give choice of what to reattach to)
+tmux
+ctrl+b c # create new window
+ctrl+b n # move to next window
+ctrl+b p # move to previous window
+tmux attach # attach back to tmux after logging back on
 ```
-
-TO DO -
-* fix screen, maybe try tmux: [http://askubuntu.com/questions/163735/lost-console-when-ec2-ssh-is-logged-out](http://askubuntu.com/questions/163735/lost-console-when-ec2-ssh-is-logged-out)
